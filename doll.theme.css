@@ -1,0 +1,355 @@
+@import url(https://raw.githubusercontent.com/SEELE1306/CSS-Snippets/refs/heads/main/Snippets/ChannelSelections/import.css);
+@import url("https://raw.githubusercontent.com/SEELE1306/CSS-Snippets/refs/heads/main/Snippets/BetterQuotes/import.css");
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-peach.theme.css");
+@import url("https://raw.githubusercontent.com/DaBluLite/css-snippets/refs/heads/master/DeclutterBar/import.css");
+@import url(https://MarkChan0225.github.io/RoundedDiscord/src/roundeddiscord.css);
+
+/* Customizable */
+:root {
+  --chat-bubble-default: grey;
+  --chat-bubble-replying: cyan;
+  --chat-bubble-mentioned: orange;
+  --chat-bubble-automod: red;
+  --enable-chat-bubble-border: 0;
+}
+
+/* NOT Customizable */
+:root {
+  /* Chat bubbles requirements */
+  --background-message-hover: none;
+  --background-mentioned: none;
+  --background-mentioned-hover: none;
+  --background-message-highlight: none;
+  --background-message-automod: none;
+  --background-message-automod-hover: none;
+  --info-warning-foreground: none;
+}
+
+/* [[ CHAT BUBBLES ]] */
+.channelTextArea_a7d72e {
+  background: transparent;
+}
+
+/* Fix overflow on replied pings */
+.repliedTextPreview_f9f2ca {
+  max-height: fit-content;
+}
+
+.mediaAttachmentsContainer__242e2 {
+  margin-bottom: 0 !important;
+}
+
+.altText_cf58b5 {
+  margin: 8px 0 -4px;
+}
+
+/* revert back to class selectors + add borders */
+.markup_f8f345.messageContent_f9f2ca a {
+  background: var(--background-modifier-accent);
+  color: var(--text-link);
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Message embeds (Vencord plugin) */
+.grid_b0068a {
+  padding: 4px 8px 8px 6px;
+
+  & .embedAuthor_b0068a {
+    & span {
+      font-weight: bold;
+    }
+  }
+
+  & .message_ddc613 {
+    padding: 8px 0;
+
+    & .avatar_f9f2ca {
+      margin: 0;
+    }
+  }
+}
+
+.groupStart_d5deea.cozyMessage_d5deea
+  > .contents_f9f2ca:hover
+  .markup_f8f345.messageContent_f9f2ca
+  a,
+.cozyMessage_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca:hover
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *)
+  a {
+  background: var(--background-modifier-hover);
+  text-decoration: none;
+}
+
+.groupStart_d5deea.cozyMessage_d5deea > .contents_f9f2ca,
+.cozyMessage_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *),
+.container_b558d0 > :not(.reactions_ec6b19, .searchResultsWrap_c2b47d *) {
+  margin: 0;
+  padding: 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--chat-bubble-default) 25%, transparent);
+  max-width: max-content;
+  box-sizing: border-box;
+  border: calc(1px * var(--enable-chat-bubble-border)) solid
+    var(--chat-bubble-default);
+
+  &:hover {
+    background: color-mix(in srgb, var(--chat-bubble-default) 50%, transparent);
+  }
+}
+
+/* Overwrite previous margin settings */
+.groupStart_d5deea.cozyMessage_d5deea > .contents_f9f2ca,
+.cozyMessage_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *) {
+  margin: calc(2px + 1px * var(--enable-chat-bubble-border)) 0;
+}
+
+.container_b558d0 > .embedSpotify_b0068a {
+  height: fit-content;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+/* Fix overlapping of reactions */
+.reactions_ec6b19 {
+  margin-top: calc(4px + 2px * var(--enable-chat-bubble-border));
+  margin-left: calc(0px - 2px * var(--enable-chat-bubble-border));
+}
+
+.altText_cf58b5 {
+  margin: 8px 0 -4px;
+}
+
+.groupStart_d5deea.cozyMessage_d5deea.replying_d5deea > .contents_f9f2ca,
+.cozyMessage_d5deea.replying_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *),
+.replying_d5deea
+  .container_b558d0
+  > :not(.reactions_ec6b19, .searchResultsWrap_c2b47d *) {
+  background: color-mix(in srgb, var(--chat-bubble-replying) 25%, transparent);
+  border-radius: 8px;
+  max-width: max-content;
+  border: calc(1px * var(--enable-chat-bubble-border)) solid
+    var(--chat-bubble-replying);
+
+  &:hover {
+    background: color-mix(
+      in srgb,
+      var(--chat-bubble-replying) 50%,
+      transparent
+    );
+  }
+}
+
+.groupStart_d5deea.cozyMessage_d5deea.mentioned_d5deea > .contents_f9f2ca,
+.cozyMessage_d5deea.mentioned_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *),
+.mentioned_d5deea
+  .container_b558d0
+  > :not(.reactions_ec6b19, .searchResultsWrap_c2b47d *) {
+  background: color-mix(in srgb, var(--chat-bubble-mentioned) 25%, transparent);
+  border-radius: 8px;
+  border: calc(1px * var(--enable-chat-bubble-border)) solid
+    var(--chat-bubble-mentioned);
+
+  &:hover {
+    background: color-mix(
+      in srgb,
+      var(--chat-bubble-mentioned) 50%,
+      transparent
+    );
+  }
+}
+
+.groupStart_d5deea.cozyMessage_d5deea.automodMessage_d5deea > .contents_f9f2ca,
+.cozyMessage_d5deea.automodMessage_d5deea:not(.groupStart_d5deea)
+  > .contents_f9f2ca
+  > .markup_f8f345:not(:empty, .searchResultsWrap_c2b47d *),
+.automodMessage_d5deea
+  .container_b558d0
+  > :not(.reactions_ec6b19, .searchResultsWrap_c2b47d *) {
+  background: color-mix(in srgb, var(--chat-bubble-automod) 25%, transparent);
+  border-radius: 8px;
+  border: calc(1px * var(--enable-chat-bubble-border)) solid
+    var(--chat-bubble-automod);
+
+  &:hover {
+    background: color-mix(in srgb, var(--chat-bubble-automod) 50%, transparent);
+  }
+}
+
+:root {
+--chat-bubble-default: rgba(0, 0, 0, 0.900);
+--chat-bubble-replying: rgb(0, 0, 0, 0.900);
+--chat-bubble-mentioned: rgb(0, 0, 0, 0.900);
+--chat-bubble-automod: rgb(0, 0, 0, 0.900);
+--enable-chat-bubble-border: 0;
+--radius: 7px;
+--font-display: Quicksand;
+--font-primary: Quicksand
+}
+
+// other addons below
+
+// --> [[ USER PANEL ]] <--
+
+[class^="nameTag_"][class*="canCopy_"] {
+  margin-left: 5px;
+}
+
+.container_b2ca13 {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+  background: #181825 !important;
+
+  & > .avatarWrapper_b2ca13 {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: unset;
+  }
+
+  & button {
+    background: transparent;
+    height: 40px;
+    width: 100%;
+    border-radius: unset;
+    box-sizing: border-box;
+
+    &:hover {
+      background: var(--brand-700) !important;
+    }
+  }
+
+  & .flex_dc333f {
+    width: 100%;
+    justify-content: center;
+    gap: 0px;
+  }
+
+  & .button_dd4f85:hover .contents_dd4f85 {
+    color: var(--interactive-hover);
+  }
+}
+
+[class^="actionButtons_"] {
+  display: flexbox;
+  order: -1;
+  box-sizing: border-box;
+  gap: 0;
+  padding-top: 0;
+
+  & [class^="button_"][class*="buttonColor_"] {
+    height: 40px;
+    background: transparent;
+
+    &:hover {
+      background: #181825 !important;
+    }
+  }
+}
+
+.panels_a4d4d9 {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 8px;
+  border-radius: 8px;
+  position: relative;
+  transition: background 250ms ease-in-out;
+}
+
+body:has(.vc-spotify-pause) .panels_a4d4d9 {
+  background: color-mix(
+    in srgb,
+    #181825 25%,
+    #181825
+  ) !important;
+}
+
+/* [[ SPOTIFY CONTROLS ]] */
+#vc-spotify-player {
+  background: transparent !important;
+  border-bottom: none;
+  padding: 14px 12px;
+
+  & [class*="bar_"] {
+    background: var(--background-modifier-accent);
+    height: 4px;
+  }
+
+  & [class*="barFill"] {
+    background: var(--brand-500);
+  }
+
+  & :is(.vc-spotify-shuffle-off, .vc-spotify-repeat-off) {
+    color: var(--brand-300) !important;
+  }
+
+  & .vc-spotify-button.vc-spotify-button {
+    color: var(--brand-500);
+    background: color-mix(in srgb, var(--brand-500) 25%, transparent);
+    margin: 0 4px;
+    scale: 0.85;
+
+    &:hover {
+      background: color-mix(in srgb, var(--brand-500) 50%, transparent);
+      color: var(--brand-300);
+    }
+  }
+
+  & .vc-spotify-button-row {
+    margin-top: 15px;
+  }
+
+  & :is(.vc-spotify-time-right, .vc-spotify-time-left) {
+    margin-top: 1px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  &
+    :is(
+      .vc-spotify-comma,
+      .vc-spotify-ellipoverflow,
+      .vc-spotify-artist,
+      .vc-spotify-album
+    ) {
+    margin-top: -2px;
+    font-weight: 600;
+  }
+
+  & #vc-spotify-album-image {
+    margin-top: -4px;
+    border-radius: 8px;
+  }
+
+  & #vc-spotify-titles {
+    margin-left: 0;
+    padding-left: 0;
+    flex: 1 auto;
+  }
+}
+
+#vc-spotify-song-title {
+  font-weight: 800;
+}
+
+#vc-spotify-info-wrapper {
+  flex-direction: row-reverse;
+}
